@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+                <thead>
+                    <tr>
+                        <th>Original URL</th>
+                        <th>Short URL</th>
+                        <th>Дата создания</th>
+                        <th>Посещения</th>
+                        <th>Пользователь</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Original URL</th>
+                        <th>Short URL</th>
+                        <th>Дата создания</th>
+                        <th>Посещения</th>
+                        <th>Пользователь</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for link in links %}
+                    <tr>
+                        <td>{{ link.original_url }}</td>
+                        <td>{{ url_for('redirect_to_url', short_url=link.short_url, _external=True) }}</td>
+                        <td>{{ link.date_created  }}</td>
+                        <td>{{ link.visits }}</td>
+                        <td>{{ user }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+{% endblock %}

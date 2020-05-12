@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="field">
+    <h1 class="tagline">Original URL</h1>
+    <h2 class="lead">{{ original_url }}</h2>
+            </div>
+            <div class="field">
+                    <h1 class="tagline">New URL</h1>
+                <h2 class="lead">{{ url_for('redirect_to_url', short_url=new_link, _external=True) }}</h2>
+            </div>
+{% endblock %}

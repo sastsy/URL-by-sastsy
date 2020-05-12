@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/gt_favicon.png') }}">
+
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.css') }}" media="screen" >
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/respond.min.js') }}"></script>
+    <title>{{title}}</title>
+</head>
+<body class="home">
+    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="/">Home</a></li>
+                    {% if current_user.is_authenticated %}
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">URL<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/create_url">Создать</a></li>
+							<li><a href="/stats">Хранилище</a></li>
+						</ul>
+					</li>
+					<li><a class="btn" href="/logout">Выйти ({{ current_user.name }})</a></li>
+                    {% else %}
+							<li class="active"><a class="btn" href="/register">Зарегистрироваться</a></li>
+							<li class="active"><a class="btn" href="/login">Войти</a></li>
+                    {% endif %}
+				</ul>
+			</div>
+		</div>
+	</div>
+<header id="head">
+		<div class="container">
+			<div class="row">
+				<h1 class="lead">ПРАВИЛО ТРЁХ "П"</h1>
+				<p class="tagline">Помнить. Понимать. Применять.</p>
+			</div>
+		</div>
+	</header>
+    <div class="container text-center">
+		<br> <br>
+		<h2 class="thin">Устали от длинных URL?</h2>
+		<p class="text-muted">
+			Этот сервис избавит вас от мук запоминания/копирования/хранения строк, иногда достигающих 500 символов!..
+			Вставьте ссылку, которую хотите сократить и получите короткий и лаконичный адрес в ответ.
+		</p>
+	</div>
+
+	<div class="jumbotron top-space">
+		<div class="container">
+
+			<h3 class="text-center thin">Достоинства приложения</h3>
+
+			<div class="row">
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Работает на Bootstrap</h4></div>
+					<div class="h-body text-center">
+						<p>Разработанный компанией Twitter, фреймворк Bootstrap используется по всему миру независимыми разработчиками.</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Лаконичность</h4></div>
+					<div class="h-body text-center">
+						<p>И не врите, что не устали от долго прогружающихся тяжелых сервисов.</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>Практическая применимость</h4></div>
+					<div class="h-body text-center">
+						<p>Коротко и по делу.</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Авторизация</h4></div>
+					<div class="h-body text-center">
+						<p>Никогда не теряйте свои ссылки!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">Контакты</h3>
+						<div class="widget-body">
+							<p>+7(912)444-50-50<br>
+								<a href="mailto:#">sas_tsy@mail.ru</a><br>
+								<br>
+								Россия, Удмуртская Республика, Ижевск
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="/">Домашняя</a>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2020, sastsy.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static', filename='js/headroom.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jQuery.headroom.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/template.js') }}"></script>
+</body>
+</html>
